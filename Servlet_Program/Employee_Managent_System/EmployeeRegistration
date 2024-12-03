@@ -63,3 +63,29 @@ public class EmployeeRegistration extends GenericServlet {
 		}		
 	}
 }
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<center>
+<form action="employeeregistration">
+<input placeholder="Enter Employee Name"  name="employeename ">
+<br>
+<input placeholder="Enter Employee Salary"   name="employeesalary">
+<br>
+<input placeholder="Enter Employee Deptno"     name="employeedeptno">
+<br>
+<input placeholder="Enter Employee Emailid"      name="employeeemailid">
+
+<input type="submit">
+</center>
+</form>
+</body>
+</html>
