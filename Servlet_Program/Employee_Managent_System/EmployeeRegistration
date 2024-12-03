@@ -1,1 +1,67 @@
 
+package com;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.servlet.GenericServlet;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/employeeregistration")
+public class EmployeeRegistration extends GenericServlet {
+	
+	@Override
+	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException 
+	{
+		
+		String insert = "insert into employee_details ( Employee_Name, Employee_Salary, Employee_DeptNo, Employee_Email) values(?,?,?,?)";
+		String employeename = req.getParameter("employeename");
+		
+		String employeesalary=req.getParameter("employeesalary");
+		double salary = Double.parseDouble(employeesalary);
+		
+		String employeedeptno=req.getParameter("employeedeptno");
+		int dept = Integer.parseInt(employeedeptno);
+		
+		String employeeemailid= req.getParameter("employeeemailid");
+		
+		try
+		{
+			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3307/teca_63?user=root&password=12345");
+			PreparedStatement st = c.prepareStatement(insert);
+			st.setString(1, employeename);
+			st.setDouble(2,salary);
+			st.setInt(3,dept);
+			st.setString(4, employeeemailid);
+			
+			int result = st.executeUpdate();
+			if(result>0)
+			{
+				System.out.println("Inserted Sucessfully.............");
+			}
+			else
+			{
+				System.out.println("Invalid data............");
+			}
+		}
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}
