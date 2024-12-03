@@ -89,3 +89,14 @@ public class EmployeeRegistration extends GenericServlet {
 </form>
 </body>
 </html>
+
+
+Enter Employee Name
+
+Enter Employee Salary
+
+Enter Employee Deptno
+
+Enter Employee Emailid
+
+submit
