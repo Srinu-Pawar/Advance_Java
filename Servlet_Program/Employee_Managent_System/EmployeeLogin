@@ -49,7 +49,6 @@ public class EmployeeLogin extends GenericServlet
 
 
 //Output :
-
 Enter Email Id
 
 Enter Dept No 
