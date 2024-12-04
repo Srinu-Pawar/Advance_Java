@@ -23,6 +23,25 @@ public class EmployeeLogin extends GenericServlet
 		System.out.println("Email Id :"+emailid);
 		System.out.println("Dept No:"+deptno);
 	}
-
 }
 
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<center>
+<form action="EmployeeLogin">
+<input placeholder="Enter Email Id"   name="emailid">
+<br>
+<input placeholder="Enter Dept No "    name="deptno">
+<br>
+<input type="submit">
+</form>
+</center>
+
+</body>
+</html>
