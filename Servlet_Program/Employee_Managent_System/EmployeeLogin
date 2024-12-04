@@ -11,7 +11,6 @@ import javax.servlet.ServletResponse;
 
 public class EmployeeLogin extends GenericServlet
 {
-
 	@Override
 	public void service(ServletRequest req, ServletResponse ser) throws ServletException, IOException 
 	{
