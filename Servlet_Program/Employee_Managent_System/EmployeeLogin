@@ -1,1 +1,28 @@
 
+
+package com;
+
+import java.io.IOException;
+
+import javax.servlet.GenericServlet;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+public class EmployeeLogin extends GenericServlet
+{
+
+	@Override
+	public void service(ServletRequest req, ServletResponse ser) throws ServletException, IOException 
+	{
+		
+		String emailid=req.getParameter("emailid");
+		String deptno=req.getParameter("deptno");
+		
+		
+		System.out.println("Email Id :"+emailid);
+		System.out.println("Dept No:"+deptno);
+	}
+
+}
+
