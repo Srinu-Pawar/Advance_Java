@@ -1,1 +1,71 @@
 
+
+package com;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.servlet.GenericServlet;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/updatemobilenumber")
+public class UpdateMobileNumber extends GenericServlet
+{
+
+	@Override
+	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException
+	{
+		String update="update teca_63.user_information   set User_Mobile_Number=?  where User_Emailid=?";
+		String tempNum=req.getParameter("phNum");
+		long newMobile = Long.parseLong(tempNum);
+		long confMobile = Long.parseLong(req.getParameter("confPhNum"));
+		
+		String emailid = req.getParameter("email");
+		
+		PrintWriter p = res.getWriter();
+		
+		
+		
+		try 
+		{
+
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3307/teca_63?user=root&password=12345");
+			PreparedStatement st=c.prepareStatement(update);
+			
+			st.setLong(1,confMobile );
+			st.setString(2, emailid);
+			int result = st.executeUpdate();
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(newMobile==confMobile)
+		{
+
+			p.println("<center><h6> Mobile Number Updated Sucessfully </h6></center>");
+		}
+		else
+		{
+			RequestDispatcher request = req.getRequestDispatcher("UpdateMobileNumber.html");
+			
+			request.include(req, res);
+			p.println("<center><h6> Invalid Confirm Mobile Number </h6></center>");
+		}
+	}
+
+}
