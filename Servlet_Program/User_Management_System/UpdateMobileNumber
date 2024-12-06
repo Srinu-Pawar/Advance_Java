@@ -90,3 +90,12 @@ public class UpdateMobileNumber extends GenericServlet
 
 </body>
 </html>
+
+
+Update Mobile Number
+Enter Mobile Number
+
+Confirm Mobile Number
+
+Enter EmailId
+   Submit 
