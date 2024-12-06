@@ -64,3 +64,29 @@ public class UpdateMobileNumber extends GenericServlet
 		}
 	}
 }
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<center>
+<h1>Update Mobile Number</h1>
+<form action="updatemobilenumber">
+
+<input placeholder="Enter Mobile Number"   name="phNum">
+<br>
+<input placeholder="Confirm Mobile Number"      name="confPhNum">
+<br>
+<input placeholder="Enter EmailId"	name="email">
+<br>
+
+<input type="submit">
+</form>
+</center>
+
+</body>
+</html>
