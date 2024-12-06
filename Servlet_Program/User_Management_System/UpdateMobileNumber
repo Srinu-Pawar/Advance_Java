@@ -19,7 +19,6 @@ import javax.servlet.annotation.WebServlet;
 @WebServlet("/updatemobilenumber")
 public class UpdateMobileNumber extends GenericServlet
 {
-
 	@Override
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException
 	{
@@ -31,9 +30,7 @@ public class UpdateMobileNumber extends GenericServlet
 		String emailid = req.getParameter("email");
 		
 		PrintWriter p = res.getWriter();
-		
-		
-		
+				
 		try 
 		{
 
@@ -52,8 +49,7 @@ public class UpdateMobileNumber extends GenericServlet
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}		
 		if(newMobile==confMobile)
 		{
 
@@ -67,5 +63,4 @@ public class UpdateMobileNumber extends GenericServlet
 			p.println("<center><h6> Invalid Confirm Mobile Number </h6></center>");
 		}
 	}
-
 }
