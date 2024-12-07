@@ -26,3 +26,31 @@ public class UserLogin extends GenericServlet
 	}
 }
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<center>
+<h1>User Login</h1>
+<form action="userlogin">
+
+
+<input placeholder="Enter User Email_Id"      name="userEmail">
+<br>
+<input placeholder="Enter User PhNumber"	name="userMobile">
+<br>
+
+<input type="submit">
+</form>
+
+<a href="UserRegistraction.html">New Account..</a>
+<a href="UpdateMobileNumber.html">Forgot password...</a>
+
+
+</center>
+</body>
+</html>
