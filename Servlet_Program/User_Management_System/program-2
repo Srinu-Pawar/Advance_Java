@@ -14,7 +14,6 @@ import javax.servlet.annotation.WebServlet;
 @WebServlet("/userlogin")
 public class UserLogin extends GenericServlet
 {
-
 	@Override
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException
 	{
