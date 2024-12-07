@@ -38,7 +38,6 @@ public class UserLogin extends GenericServlet
 <h1>User Login</h1>
 <form action="userlogin">
 
-
 <input placeholder="Enter User Email_Id"      name="userEmail">
 <br>
 <input placeholder="Enter User PhNumber"	name="userMobile">
@@ -49,7 +48,6 @@ public class UserLogin extends GenericServlet
 
 <a href="UserRegistraction.html">New Account..</a>
 <a href="UpdateMobileNumber.html">Forgot password...</a>
-
 
 </center>
 </body>
