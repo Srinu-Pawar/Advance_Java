@@ -52,3 +52,11 @@ public class UserLogin extends GenericServlet
 </center>
 </body>
 </html>
+
+//Output :
+User Login
+Enter User Email_Id
+
+Enter User PhNumber
+
+New Account.. Forgot password...
