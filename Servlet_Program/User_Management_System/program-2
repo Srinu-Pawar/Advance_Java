@@ -10,7 +10,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 
-
 @WebServlet("/userlogin")
 public class UserLogin extends GenericServlet
 {
