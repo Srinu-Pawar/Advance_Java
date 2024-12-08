@@ -79,8 +79,6 @@ public class UserRegistration extends GenericServlet
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
-	}
-	
-	
+	}	
 }
 
