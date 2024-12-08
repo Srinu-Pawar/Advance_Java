@@ -1,1 +1,86 @@
 
+
+package com;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.servlet.GenericServlet;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/userregistration")
+public class UserRegistration extends GenericServlet
+{
+
+	@Override
+	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException
+	{
+		
+		String insert="insert into user_information (User_Name, User_Emailid, User_Mobile_Number, User_Date_Of_Birth) values(?,?,?,?)";
+		
+		String name=req.getParameter("userName");
+		String email=req.getParameter("userEmail");
+		String phno = req.getParameter("userMobile");
+		long mobile = Long.parseLong(phno);		
+		String DOB = req.getParameter("userDOB");
+		Date dob = Date.valueOf(DOB);
+		
+		try 
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3307/teca_63?user=root&password=12345");
+			PreparedStatement p = c.prepareStatement(insert);
+			
+			p.setString(1, name);
+			p.setString(2,email);
+			p.setLong(3,mobile);
+			p.setDate(4, dob);
+			
+			int result = p.executeUpdate();
+			
+			PrintWriter pw= res.getWriter();
+			/*if(result>0)
+			{
+				//System.out.println("Regester Suceffully....");
+				pw.println(" Register Sucessfully.........");
+			}
+			else
+			{
+				System.out.println("");
+			}*/
+			
+			if(name!=null && email!=null && mobile!=0 && dob!=null)
+			{
+				RequestDispatcher dispatch = req.getRequestDispatcher("UserLogin.html");
+				dispatch.include(req, res);
+				pw.println("Invalid Data");
+			}
+			else
+			{
+				RequestDispatcher dispatch = req.getRequestDispatcher("UserRegistraction.html");
+				dispatch.include(req, res);
+				pw.println("Invalid Data");
+			}
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+	
+	
+}
+
