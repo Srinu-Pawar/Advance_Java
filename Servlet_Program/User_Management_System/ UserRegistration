@@ -93,7 +93,6 @@ public class UserRegistration extends GenericServlet
 <center>
 <h1>User Registration</h1>
 <form action="userregistration">
-
 <input placeholder="Enter User Name"   name="userName">
 <br>
 <input placeholder="Enter User Email_Id"      name="userEmail">
