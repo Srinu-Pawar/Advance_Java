@@ -20,7 +20,6 @@ import javax.servlet.annotation.WebServlet;
 @WebServlet("/userregistration")
 public class UserRegistration extends GenericServlet
 {
-
 	@Override
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException
 	{
@@ -91,7 +90,6 @@ public class UserRegistration extends GenericServlet
 </head>
 <body>
 
-
 <center>
 <h1>User Registration</h1>
 <form action="userregistration">
@@ -103,7 +101,6 @@ public class UserRegistration extends GenericServlet
 <input placeholder="Enter User PhNumber"	name="userMobile">
 <br>
 <input placeholder="Enter User Date-Of-Birth"     name="userDOB" type="date">
-
 <br>
 <input type="submit">
 </form>
