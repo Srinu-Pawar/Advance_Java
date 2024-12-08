@@ -82,3 +82,31 @@ public class UserRegistration extends GenericServlet
 	}	
 }
 
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<center>
+<h1>User Registration</h1>
+<form action="userregistration">
+
+<input placeholder="Enter User Name"   name="userName">
+<br>
+<input placeholder="Enter User Email_Id"      name="userEmail">
+<br>
+<input placeholder="Enter User PhNumber"	name="userMobile">
+<br>
+<input placeholder="Enter User Date-Of-Birth"     name="userDOB" type="date">
+
+<br>
+<input type="submit">
+</form>
+</center>
+</body>
+</html>
