@@ -1,1 +1,31 @@
 
+package com;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Demo 
+{
+	public static void main(String[] args)
+	{
+		String insert = "insert into (name, loc) values('Pavan','Andra')";
+		try 
+		{
+			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3307/teca_63?user=root&password=12345");
+			
+			Statement st=c.createStatement();
+			
+			int Rs=st.executeUpdate(insert);
+			System.out.println(Rs);
+		}
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
