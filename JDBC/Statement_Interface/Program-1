@@ -21,6 +21,7 @@ public class Demo
 			int Rs=st.executeUpdate(insert);
 			System.out.println(Rs);
 		}
+
 		catch (SQLException e) 
 		{
 			// TODO Auto-generated catch block
