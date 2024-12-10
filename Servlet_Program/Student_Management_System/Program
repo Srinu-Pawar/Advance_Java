@@ -64,6 +64,35 @@ public class StudentRegistration extends HttpServlet
 			e.printStackTrace();
 		}
 	}
-
 }
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<center>
+
+<form  action="studentregistration">
+<center><h3> Student Registration</h3></h1></center>
+
+
+<input placeholder="Enter Email Id" 	name="emailid">
+<br>
+<br>
+<input placeholder="Enter Mobile Number "    	name="mobileNumber">
+<br>
+<br>
+<input type="submit">
+
+</form>
+</center>
+
+</body>
+</html>
+
 
