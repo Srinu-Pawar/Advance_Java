@@ -39,8 +39,7 @@ public class StudentRegistration extends HttpServlet
 			st.setString(1, emailid);
 			st.setLong(2,tempMobileNum );
 			int result = st.executeUpdate();
-			
-			
+
 			if(result>0)
 			{
 				session.setAttribute("mailid", emailid);
