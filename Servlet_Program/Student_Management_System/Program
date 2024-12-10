@@ -74,13 +74,10 @@ public class StudentRegistration extends HttpServlet
 <title>Insert title here</title>
 </head>
 <body>
-
 <center>
 
 <form  action="studentregistration">
 <center><h3> Student Registration</h3></h1></center>
-
-
 <input placeholder="Enter Email Id" 	name="emailid">
 <br>
 <br>
