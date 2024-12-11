@@ -73,3 +73,38 @@ public class Studentregistration2 extends HttpServlet
 	}
 }
 
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<center>
+
+<form  action="studentregistration2">
+<center><h3> Student Details </h3></h1></center>
+
+
+<input placeholder="Year of Pass Out" 	name="YOP">
+<br>
+<br>
+<input placeholder="Enter Student Name "    	name="name">
+<br>
+<br>
+
+<input placeholder="Enter Percentage"    	name="percentage">
+<br>
+<br>
+<input placeholder="Enter Branch of Student" name="branch">
+<br>
+<br>
+<input type="submit">
+
+</form>
+</center>
+
+</body>
+</html>
