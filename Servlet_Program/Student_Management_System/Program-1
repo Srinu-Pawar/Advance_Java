@@ -1,1 +1,75 @@
+package com;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet("/studentregistration2")
+public class Studentregistration2 extends HttpServlet
+{
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
+	{
+		String  yop= req.getParameter("YOP");
+		int YOP = Integer.parseInt(yop);
+		String name= req.getParameter("name");
+		String perce = req.getParameter("percentage");
+		double percentage = Double.parseDouble(perce);
+		String branch= req.getParameter("branch");
+		HttpSession session = req.getSession();
+		String emailid = (String)session.getAttribute("mailid");
+		
+		String update = "update student_management_system set  year_of_pass=?, student_name=?, percentage=?, branch=? where email_id=?";
+		
+		try
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/teca_63?user=root&password=12345");
+			
+			PreparedStatement st=c.prepareStatement(update);
+			
+			st.setInt(1,YOP );
+			
+			st.setString(2,name);
+			
+			st.setDouble(3,percentage);
+			
+			st.setString(4, branch);
+			
+			st.setString(5,emailid);
+			
+			int result = st.executeUpdate();
+			
+			if(result>0)
+			{
+				System.out.println("Update");
+			}
+			else
+			{
+				System.out.println("Not update");
+			}
+		} 
+		catch (ClassNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}
 
