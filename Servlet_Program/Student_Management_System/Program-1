@@ -68,8 +68,7 @@ public class Studentregistration2 extends HttpServlet
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}		
 	}
 }
 
