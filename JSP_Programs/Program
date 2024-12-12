@@ -1,1 +1,61 @@
 
+<%@page import="java.util.Random"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form>
+<center>
+<input placeholder="Enter Your Emailid"  name="emailid">
+<br>
+<input placeholder="Enter Your Pin " 	name="pin">
+<br>
+<input type="submit">
+
+<%! int pin; %>
+<%
+ String emailid = request.getParameter("emailid");
+
+String tpin = request.getParameter("pin");
+
+if(tpin!=null)
+{
+	pin = Integer.parseInt(tpin);
+	
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	 Connection c =DriverManager.getConnection("jdbc:mysql://localhost:3307/teca_63?user=root&password=12345");
+	 PreparedStatement p = c.prepareStatement("select * from user_information where User_Emailid=? and User_Id=?");
+	 
+	 p.setString(1,emailid);
+	 p.setInt(2,pin);
+	 
+	 ResultSet res = p.executeQuery();
+	 
+	 Random random = new Random();
+	 if(res.next())
+	 {%>
+
+		<center> <h1> <%="Your OTP is :"+random.nextInt(1234) %></h1></center>
+		
+		<input placeholder="Enter Your OTP " >
+		<input type ="submit">
+	 <% }
+	 else
+	 {%>
+		 <center> <h1> <%="Invalid Data" %></h1></center>
+	 <% }
+}
+%>
+</center>
+</form>
+</body>
+</html>
