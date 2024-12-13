@@ -1,1 +1,49 @@
 
+
+package com;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class DisplayStudentDetailsBasedOnMarks 
+{
+	public static void main(String[] args)
+	{
+		 String res="select * from teca_63.student where Student_Marks>90";
+		   try 
+		   {
+			Connection c =DriverManager.getConnection("jdbc:mysql://localhost:3307/teca_63?user=root&password=12345");
+			
+			Statement st=c.createStatement();
+			ResultSet s=st.executeQuery(res);
+			if(s.isBeforeFirst())
+			{
+				while(s.next())
+				{
+					System.out.println("Name :"+s.getString("Student_Name"));
+
+					System.out.println("Roll:Number :"+s.getString("Student_Roll_No"));
+
+					System.out.println("Stream  :"+s.getString("Student_Stream"));
+				
+					System.out.println("Location :"+s.getString("Student_Adress"));
+				}
+			}
+			else
+			{
+				System.out.println("Data Not Found.....");
+			}
+		   }
+		   catch (SQLException e) 
+		   {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		   }
+	}
+	
+	
+}
+
