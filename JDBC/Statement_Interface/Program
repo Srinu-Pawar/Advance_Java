@@ -1,1 +1,33 @@
 
+
+package com;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class CreationOfPlatform 
+{
+	public static void main(String[] args) 
+	{
+		String insert = "insert into teca_63.user_information"+"( User_Name, User_Emailid, User_Mobile_Number, User_Date_Of_Birth)"+"values('Manikanta','maini@gmail.com',90987890,'2007-7-8')";
+		try 
+		{
+			Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3307?user=root&password=12345");
+			System.out.println("Established connection.......");
+			
+			Statement st=connection.createStatement();
+			System.out.println("Platform Connection.......");
+			
+			int result = st.executeUpdate(insert);
+			System.out.println(result);
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
