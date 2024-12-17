@@ -13,6 +13,7 @@ public class PrintStudentDetailsBasedOnMarks
 	public static void main(String[] args)
 	{
 	   String res="select * from teca_63.student where Student_Marks=99";
+
 	   try 
 	   {
 		Connection c =DriverManager.getConnection("jdbc:mysql://localhost:3307/teca_63?user=root&password=12345");
