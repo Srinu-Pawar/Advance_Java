@@ -1,1 +1,46 @@
 
+
+package com;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class SelectAllUserInformation 
+{
+	public static void main(String[] args) 
+	{
+		String select ="select * from user_information ";
+		try 
+		{
+			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3307/teca_63?user=root&password=12345");
+			
+			Statement st=c.createStatement();
+			
+			ResultSet s=st.executeQuery(select);
+			//System.out.println(s);
+			while(s.next())
+			{
+				System.out.println("Name :"+s.getString("User_Id"));
+
+				System.out.println("Name :"+s.getString("User_Name"));
+
+				System.out.println("Name :"+s.getString("User_Emailid"));
+				
+				System.out.println("Name :"+s.getString("User_Mobile_Number"));
+			
+				System.out.println("Name :"+s.getString("User_Date_Of_Birth"));
+				
+				System.out.println("----------------------------------------");
+			}
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
