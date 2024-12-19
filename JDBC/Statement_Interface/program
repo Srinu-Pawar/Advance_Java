@@ -1,1 +1,33 @@
 
+
+package com;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class UpdateEmailByUsingPhoneNum 
+{
+	public static void main(String[] args) 
+	{
+		String update="update teca_63.user_information set User_Emailid='srinu_pawar@gmail.com' where User_Mobile_Number=9980567342";
+		try 
+		{
+			Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3307?user=root&password=12345");
+			System.out.println("Established connection.......");
+			
+			Statement st=connection.createStatement();
+			System.out.println("Creation Platform.....");
+			
+			int res=st.executeUpdate(update);
+			System.out.println(res); 
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
